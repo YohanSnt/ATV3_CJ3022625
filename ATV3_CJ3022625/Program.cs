@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Design;
+using System.Threading.Channels;
 
 namespace ATV3_CJ3022625
 {
@@ -56,16 +57,53 @@ namespace ATV3_CJ3022625
             }
 
             //ATV3
+            int num, tent;
 
+            Random gerador = new Random();
+            num = gerador.Next(100);
+            Console.WriteLine(num);
 
-            //ATV4
-            string nome, senha;
+            Console.WriteLine("Digite um número de 0 a 100: ");
+            tent = int.Parse(Console.ReadLine());
+
+            if (num == tent)
+            {
+                Console.WriteLine("Acertou");
+            }
+            else if (num < tent) //dica
+
+            {
+                Console.WriteLine("Número é menor, tente novamente");
+                Console.WriteLine("Digite outro número: ");
+                tent = int.Parse(Console.ReadLine());
+
+                if (num == tent)
+                {
+                    Console.WriteLine("Acertou de segunda");
+                }
+
+                else if (num > tent)
+                {
+                    Console.WriteLine("Número é maior, tente novamente");
+                    Console.WriteLine("Digite outro número: ");
+                    tent = int.Parse(Console.ReadLine());
+
+                    if (num == tent)
+                    {
+                        Console.WriteLine("Acertou de terceira");
+                    }
+                }
+            }
+   
+
+           //ATV4
+          string nome, senha;
             Console.WriteLine("\n4- Nome de usuário: ");
             nome = Console.ReadLine();
             Console.WriteLine("\nSenha: ");
             senha = Console.ReadLine();
 
-            if ((nome == "admin") && (senha == "admin123"))
+           if ((nome == "admin") && (senha == "admin123"))
             {
                 Console.WriteLine("Acesso concedido");
             }
@@ -88,4 +126,5 @@ namespace ATV3_CJ3022625
 
         }
     }
+
 }
